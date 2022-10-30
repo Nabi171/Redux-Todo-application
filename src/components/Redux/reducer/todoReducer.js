@@ -1,3 +1,5 @@
+import { GET_TODOS_REQUEST, GET_TODOS_SUCCESS, GET_TODOS_FAILED } from "../constans/todoConstan";
+
 const initialState = {
     isLoading: false,
     todos: [],
@@ -6,11 +8,29 @@ const initialState = {
 
 const todosReducer = (state = initialState, action) => {
     switch (action.type) {
-        case value:
+        case GET_TODOS_REQUEST:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case GET_TODOS_SUCCESS:
+            return {
 
-            break;
+                isLoading: false,
+                todos: action.payload,
+                error: null
+            }
+        case GET_TODOS_FAILED:
+            return {
+
+                isLoading: false,
+                todos: [],
+                error: null
+            }
+
 
         default:
-            break;
+            return state;
     }
-}
+};
+export default todosReducer;
