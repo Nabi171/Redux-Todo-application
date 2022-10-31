@@ -11,22 +11,22 @@ const todosReducer = (state = initialState, action) => {
         case GET_TODOS_REQUEST:
             return {
                 ...state,
-                isLoading: true
-            }
+                isLoading: true,
+            };
         case GET_TODOS_SUCCESS:
             return {
 
                 isLoading: false,
                 todos: action.payload,
-                error: null
-            }
+                error: null,
+            };
         case GET_TODOS_FAILED:
             return {
 
                 isLoading: false,
                 todos: [],
-                error: null
-            }
+                error: action.payload,
+            };
 
 
         default:
